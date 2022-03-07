@@ -54,8 +54,17 @@
   align-items: center;
 }
 
+.check-mark img {
+  visibility: hidden;
+}
+
+.check-mark.checked img, .check-mark:hover img {
+  visibility: visible;
+}
+
 .check-mark {
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
+
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -64,6 +73,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.check-mark.checked {
+  background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+}
+
+.check-mark:hover {
+  background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
 }
 
 .new-todo-input {
@@ -140,6 +157,11 @@
   color: hsl(234, 39%, 85%);
 }
 
+.task-text.checked {
+  text-decoration: line-through;
+  color: hsl(233, 14%, 35%);
+}
+
 .items-statuses span {
   padding: 0 4px;
 }
@@ -147,4 +169,8 @@
 .items-statuses span:hover, .items-clear:hover {
   color: hsl(220, 98%, 61%);
   cursor: pointer;
+}
+
+.items-statuses .active {
+  color: hsl(220, 98%, 61%);
 }

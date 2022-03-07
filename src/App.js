@@ -50,7 +50,7 @@ function App() {
   // const [tasks, setTasks] = useState("HELLO") // initializes state with a string "HELLO"
   // const [tasks, setTasks] = useState([]) // use an empty array when making an API call ; equivaltent to: let tasks = []
   const [tasks, setTasks] = useState(data)
-  
+
   // setTasks(data) // changes the state; equivalent to: tasks = data
   /* setting up variable vs state:
   state will directly effect the component
@@ -66,8 +66,9 @@ function App() {
           <h1>TODO</h1>
           <img src="./images/images/icon-sun.svg" alt="icon-sun"/>
         </div>
-
-        <TaskInput />
+        
+        {/* it is possible to pass down functions so that other components can use them */}
+        <TaskInput tasks = {tasks} setTasks = {setTasks} />
 
         {/* <TaskList /> */}
         {/* in TaskList, pass down the variable w key.

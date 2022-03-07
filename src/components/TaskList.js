@@ -3,7 +3,7 @@ import { Task } from './Task'
 import { FilterControl } from './FilterControl'
 
 /* child (TaskList) receives candy(props) */
-export const TaskList = ({tasks}) => {
+export const TaskList = ({tasks, setTasks}) => {
     // console.log(tasks)
 
     return (
@@ -22,18 +22,12 @@ export const TaskList = ({tasks}) => {
                 return <Task
                     text = {task.text}
                     key = {task.id}
-                    completed = {task.completed}
+                    status = {task.status}
+                    tasks = {tasks}
+                    setTasks = {setTasks}
                     />
             })}
 
-                {/*
-                <Task />
-                <Task />
-                <Task />
-                <Task />
-                <Task />
-                <Task />
-                */}
             </div>
 
             <div className='task-items-info'>
