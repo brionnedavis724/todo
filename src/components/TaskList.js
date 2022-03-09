@@ -17,13 +17,14 @@ export const TaskList = ({tasks, setTasks}) => {
                 return <Task />
             })} */}
             {tasks.map((task) => {
+                console.log(task)
                 // return <Task task = {task} />
                 // pass down info from the tasks object, destruct it. assign a new key w a new value in object
                 return <Task
                     text = {task.text}
                     key = {task.id}
                     status = {task.status}
-                    tasks = {tasks}
+                    task = {task}
                     setTasks = {setTasks}
                     />
             })}
