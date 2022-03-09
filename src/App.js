@@ -1,5 +1,15 @@
 import './App.css';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+/*
+useEffect is a react hook that allows us to perfrom "side effects" at any stage of component's life cycle
+side effect: api call, adding en event listener, a function I want to run 
+
+// component life cycle
+componentDidMount (when the component first renders)
+componentDidUpdate (when it renders)
+componentWillUnmount (when the component is removed from app)
+*/
+
 // import TaskInput from "./components/TaskInput"
 // import TaskList from "./components/TaskList"
 import { TaskInput } from "./components/TaskInput"
@@ -50,6 +60,7 @@ function App() {
   // const [tasks, setTasks] = useState("HELLO") // initializes state with a string "HELLO"
   // const [tasks, setTasks] = useState([]) // use an empty array when making an API call ; equivaltent to: let tasks = []
   const [tasks, setTasks] = useState(data)
+  const [filterStatus, setFilterStatus] = useState("all")
 
   // setTasks(data) // changes the state; equivalent to: tasks = data
   /* setting up variable vs state:
@@ -57,6 +68,20 @@ function App() {
   will be more reactive */
 
   // console.log(tasks)
+
+  useEffect(() => {
+    // when I change my filterStatus I want to update my tasks to the corresponding
+    const handleFilter = () => {
+      if (filterStatus === "active") {
+        // what kind of tasks should I have?
+      } else if (filterStatus === "completed") {
+
+      } else {
+        
+      }
+    }
+    // setTasks(UPDATEDTASKS)
+  },[filterStatus])
 
   return (
     <div className="App">
@@ -74,7 +99,7 @@ function App() {
         {/* in TaskList, pass down the variable w key.
         this is how you pass down props */}
         {/* passing down 'tasks' to TaskList as a prop */}
-        <TaskList tasks = {tasks} /> {/* offers child(TaskList) some candy(props) */}
+        <TaskList tasks = {tasks} filterStatus = {filterStatus} setFilterStatus = {setFilterStatus}/> {/* offers child(TaskList) some candy(props) */}
 
       </div>
     </div>

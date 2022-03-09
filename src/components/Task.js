@@ -36,7 +36,7 @@ export const Task = ({text, task}) => {
         </div>
       </div>
 
-      <div className='task-text'>
+      <div className={`task-text ${checked}`}>
         <p>{text}</p>
       </div>
     </div>
