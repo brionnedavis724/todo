@@ -2,8 +2,8 @@ import React from 'react'
 import { Task } from './Task'
 import { FilterControl } from './FilterControl'
 
-/* child (TaskList) receives candy(props) */
-export const TaskList = ({tasks, setTasks, filterStatus, setFilterStatus}) => {
+/* child (TaskList) receives candy(props) ; this line of code shows TaskList ACCEPTING the props */
+export const TaskList = ({tasks, setTasks, filterStatus, setFilterStatus, filteredTasks}) => { // destructing props
     // console.log(tasks)
 
     return (
@@ -16,8 +16,8 @@ export const TaskList = ({tasks, setTasks, filterStatus, setFilterStatus}) => {
                 console.log(item)
                 return <Task />
             })} */}
-            {tasks.map((task) => {
-                console.log(task)
+            {filteredTasks.map((task) => {
+                // console.log(task)
                 // return <Task task = {task} />
                 // pass down info from the tasks object, destruct it. assign a new key w a new value in object
                 return <Task
@@ -38,8 +38,8 @@ export const TaskList = ({tasks, setTasks, filterStatus, setFilterStatus}) => {
                 </div>
 
                 <FilterControl 
-                filterStatus = {filterStatus}
-                setFilterStatus = {setFilterStatus}
+                    filterStatus = {filterStatus}
+                    setFilterStatus = {setFilterStatus}
                 /> 
 
                 <div className='items-clear'>

@@ -48,7 +48,7 @@ export const TaskInput = ({tasks, setTasks}) => {
     // setTasks([...tasks, newTask]) // must be passed into this component from it's original component (App.js)
     setTasks([newTask,...tasks]) // creates a newTask at the beginning of the list
   }
-  console.log(tasks)
+  // console.log(tasks)
 
   return (
     // add tasks to input container

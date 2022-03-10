@@ -4,10 +4,10 @@ export const FilterControl = ({filterStatus, setFilterStatus}) => {
 
   // how can I keep track of filterStatus?
   // const [filterStatus, setFilterStatus] = useState("all")
-  console.log(filterStatus)
+  // console.log(filterStatus)
 
   const handleStatus = (status) => {
-    console.log('I have been clicked')
+    // console.log('I have been clicked')
     setFilterStatus(status)
   }
 

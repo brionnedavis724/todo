@@ -60,6 +60,7 @@ function App() {
   // const [tasks, setTasks] = useState("HELLO") // initializes state with a string "HELLO"
   // const [tasks, setTasks] = useState([]) // use an empty array when making an API call ; equivaltent to: let tasks = []
   const [tasks, setTasks] = useState(data)
+  const [filteredTasks, setFilteredTasks] = useState(tasks)
   const [filterStatus, setFilterStatus] = useState("all")
 
   // setTasks(data) // changes the state; equivalent to: tasks = data
@@ -74,14 +75,24 @@ function App() {
     const handleFilter = () => {
       if (filterStatus === "active") {
         // what kind of tasks should I have?
+        // how do I update my tasks with only the "active" tasks
+        // get array filtered with only the active tasks
+        console.log("hello, I'm active")
+        // setTasks([{}])
+        setFilteredTasks(tasks.filter((task) => task.status === false))
+        /* if filter status is active, update tasks to be the filtered version */
+
       } else if (filterStatus === "completed") {
+          setFilteredTasks(tasks.filter((task) => task.status === true))
 
       } else {
-        
+        // setTasks(tasks)
+        setFilteredTasks(tasks)
       }
     }
     // setTasks(UPDATEDTASKS)
-  },[filterStatus])
+    handleFilter() 
+  },[tasks, filterStatus])
 
   return (
     <div className="App">
@@ -99,7 +110,13 @@ function App() {
         {/* in TaskList, pass down the variable w key.
         this is how you pass down props */}
         {/* passing down 'tasks' to TaskList as a prop */}
-        <TaskList tasks = {tasks} filterStatus = {filterStatus} setFilterStatus = {setFilterStatus}/> {/* offers child(TaskList) some candy(props) */}
+        <TaskList 
+          tasks = {tasks}
+          setTasks = {setTasks}
+          filterStatus = {filterStatus}
+          setFilterStatus = {setFilterStatus}
+          filteredTasks = {filteredTasks}
+        /> {/* offers child(TaskList) some candy(props) */}
 
       </div>
     </div>
