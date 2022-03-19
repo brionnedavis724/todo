@@ -111,8 +111,8 @@ function App() {
       <div className="container">
 
         <div className='header'>
-          <h1>What's up, <span style={{ color: '#66C7F4', fontStyle: 'italic', marginLeft: '50px'}} >Brionne!</span></h1>
-          <h3>What's next?</h3>
+          <h1>What's up, <span style={{ color: '#66C7F4', fontStyle: 'italic' }} >Brionne!</span></h1>
+          {/* <h3>What's next?</h3> */}
           <img onClick={newTheme} src="./images/images/icon-sun.svg" alt="icon-sun"/>
         </div>
         
@@ -130,7 +130,6 @@ function App() {
           setFilterStatus = {setFilterStatus}
           filteredTasks = {filteredTasks}
         /> {/* offers child(TaskList) some candy(props) */}
-
       </div>
     </div>
   );

@@ -7,14 +7,19 @@
 }
 
 .App {
+  /* border: 1px solid red; */
+
   width: 100%;
   height: 100vh;
   background-color: hsl(235, 21%, 11%);
-  background-image: url("/public/images/images/bg-desktop-dark.jpg");
+  /* background-image: url("/public/images/images/bg-desktop-dark.jpg"); */
   background-repeat: no-repeat;
-  background-size: contain;
-  font-family: 'BioRhyme', serif;
+  background-size: 100%;
 
+  /* background-image: url("https://tool.glimpact.com/content/it_job_2.jpg"); */
+  /* background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Epg-VFaCFTzW_LyTamqZ8AHaEK%26pid%3DApi&f=1"); */
+  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.fVYxrouZfW8b5tqZYpGMXwHaEo%26pid%3DApi&f=1");
+  font-family: 'BioRhyme', serif;
   display: flex;
   justify-content: center;
 }
@@ -25,16 +30,19 @@
   /* font-family: 'Crimson Pro', serif; */
   width: 100%;
   max-width: 650px;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .header {
+  /* border: 2px solid red; */
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
-  letter-spacing: 10px;
-  font-size: 25px;
+  /* letter-spacing: 10px; */
+  font-size: 22px;
+  margin: 0px 25px 15px 40px;
 }
 
 .task-input {
@@ -90,6 +98,13 @@
 .check-mark:hover {
   background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
 }
+
+.inputList {
+  border: 2px solid red;
+
+  display: flex;
+}
+
 
 .new-todo-input {
   flex-grow: 1; /* sets how much the flexed item will grow */
