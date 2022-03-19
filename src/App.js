@@ -38,14 +38,13 @@ Part 2:
 //   {}
 // ]
 const data = [
-  { id: 1, text: "Finish contacts hw", status: false },
+  { id: 1, text: "Finish contacts hw", status: false, img: 'https://cdn-icons-png.flaticon.com/512/3221/3221845.png' },
   { id: 2, text: "Study react hooks", status: false },
   { id: 3, text: "Finish Clever programmer challenge", status: false },
   { id: 4, text: "Run 1 mile", status: false },
   { id: 5, text: "Finish errands", status: false },
   { id: 6, text: "Complete Todo App", status: false },
 ];
-
 /* take data, whether hard coded or from API and store in state. destruct from there */
 /* state is used to carry info to another component */
 /* state is data we want to keep track of and change later on */
@@ -99,7 +98,8 @@ function App() {
       <div className="container">
 
         <div className='header'>
-          <h1>TODO</h1>
+          <h1>What's up, Brionne!</h1>
+          <h3>What's next?</h3>
           <img src="./images/images/icon-sun.svg" alt="icon-sun"/>
         </div>
         

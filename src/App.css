@@ -43,6 +43,9 @@
   border-radius: 8px;
   margin-top: 10px;
 
+  border: none;
+  outline: none;
+
   display: flex;
   align-items: center;
 }
@@ -155,11 +158,40 @@
 
 .task-text {
   color: hsl(234, 39%, 85%);
+  font-size: 18px;
 }
 
 .task-text.checked {
   text-decoration: line-through;
   color: hsl(233, 14%, 35%);
+}
+
+.taskTextIcons {
+  /* border: 2px solid red; */
+  width: 80%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete {
+  width: 25px;
+  height: 25px;
+}
+
+.delete:hover {
+  
+    background-color: #aaaaaa;
+    transition: 0.3s;
+    cursor: pointer;
+
+}
+
+.delete.active {
+  
+    background-color: orange;
+    box-shadow: 0 5px gray;
+    transform: translateY(2px);
 }
 
 .items-statuses span {

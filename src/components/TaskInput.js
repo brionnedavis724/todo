@@ -9,7 +9,7 @@ get the value of input ea time it's changed and save to state
 then push to the list
 */
 
-// pass down setTasks from App.js ino TaskInput
+// pass down setTasks from App.js into TaskInput
 export const TaskInput = ({tasks, setTasks}) => {
   
   const [input, setInput] = useState("")
@@ -25,11 +25,11 @@ export const TaskInput = ({tasks, setTasks}) => {
   const handleForm = (e) => {
     e.preventDefault() // allows you to prevent regular undo when pressing ctrl+z; put your own undo
   
-  const generateId = (array) => {
-    const taskIDs = array.map((item) => item.id)
-    // console.log(taskIDs)
-    return Math.max(...taskIDs) + 1
-  }
+    const generateId = (array) => {
+      const taskIDs = array.map((item) => item.id)
+      // console.log(taskIDs)
+      return Math.max(...taskIDs) + 1
+    }
 
     // create a new todo object
     const newTask = {
@@ -45,8 +45,9 @@ export const TaskInput = ({tasks, setTasks}) => {
     // tasks.push(newTasks)
     // console.log([...tasks, newTask])
 
-    // setTasks([...tasks, newTask]) // must be passed into this component from it's original component (App.js)
+    // setTasks([...tasks, newTask]) // setTasks() must be passed into this component from it's original component (App.js)
     setTasks([newTask,...tasks]) // creates a newTask at the beginning of the list
+    setInput('')
   }
   // console.log(tasks)
 
@@ -54,23 +55,23 @@ export const TaskInput = ({tasks, setTasks}) => {
     // add tasks to input container
     <div className='task-input'>
 
-    <div className='check'>
-      <div className='check-mark'>
-        {/* check mark image goes here */}
+      <div className='check'>
+        <div className='check-mark'>
+          {/* check mark image goes here */}
+        </div>
       </div>
+
+      <div className='new-todo-input'>
+        <form onSubmit={handleForm}> {/* when I press enter the handleForm function will run */}
+          {/* onChange is an event  */}
+          <input onChange={(handleChange)} id="todo-input" type="text" placeholder="create a new todo..." />
+        </form> {/*lets us submit info using onSubmit={}*/}
+      </div>
+
+      {/* task list component */}
+      {/* <div className="task-list"></div> */}
+
     </div>
-
-    <div className='new-todo-input'>
-      <form onSubmit={handleForm}> {/* when I press enter the handleForm function will run */}
-        {/* onChange is an event  */}
-        <input onChange={(handleChange)} id="todo-input" type="text" placeholder="create a new todo..." />
-      </form> {/*let's us submit info using onSubmit={}*/}
-    </div>
-
-    {/* task list component */}
-    <div className="task-list"></div>
-
-  </div>
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Check from '../images/icon-check.svg' // access to image, reference it using the word "Check"
 
 /* pass down {text} prop that was created w TaskList map function*/
@@ -8,12 +8,13 @@ export const Task = ({text, task, tasks, setTasks}) => {
   const [mutableTask, setMutableTask] = useState(task);
 
   const checked = mutableTask.status ? "checked" : "";
-  /* if mutableTask.status is true, then "checked" is stored in variable check; if mutableTask.status is false then empty string " " will be stored in variable checked  */
+  /* if mutableTask.status is true, then "checked" is stored in variable checked; if mutableTask.status is false then empty string " " will be stored in variable checked  */
   const checkIcon = mutableTask.status ? (<img src={Check} alt="completed" />) : "";
 
   const markCompleted = () => {
     // console.log("I HAVE BEEN MARKED")
-    console.log(task)
+    // console.log(task)
+    
     // what should happen when checked?
     // update CSS to marked
     // switch the task status
@@ -40,17 +41,45 @@ export const Task = ({text, task, tasks, setTasks}) => {
     setTasks(updatedTasks)
   }
 
+  const bookmarkTask = () => {
+    console.loog('urgent')
+  }
+
+  const deleteTask = () => {
+    console.log('deleted')
+    // access the id of ea task; store into variable currentTaskId
+    // when delete button gets pressed, the value of the current task's id gets saved inside currentTaskId
+    const currentTaskId = task.id 
+
+    // use the setTasks() function in order to manipulate all the tasks
+    // filter through the tasks[]
+    // look for ea task who's id is not currentTaskId
+    // filter out/remove task with currentTaskId 
+    // only show in app tasks that is NOT stored in currentTaskId
+    setTasks(tasks.filter(task => task.id != currentTaskId))
+  }
+
   return (
     <div className='task-item'>
+
       <div className='check' onClick={markCompleted}>
         <div className={`check-mark ${checked}`}>
           {checkIcon}  
         </div>
       </div>
 
-      <div className={`task-text ${checked}`}>
-        <p>{text}</p>
+      <div className='taskTextIcons'>
+        <div className={`task-text ${checked}`}>
+          <p>{text}</p>
+        </div>
+          
+          <div className="deleteIcons">
+            <img className="delete" onClick={bookmarkTask} src="https://cdn-icons.flaticon.com/png/128/2031/premium/2031022.png?token=exp=1647681539~hmac=ab9667e4d63941c0f2d97f30a093b255" alt="favorite/bookmark" />
+            <img className='delete' onClick={deleteTask} src='https://cdn-icons-png.flaticon.com/512/3221/3221897.png' />
+            {/* <i className="fa-solid fa-square-minus"></i> */}
+          </div>
       </div>
+     
     </div>
 
 
