@@ -1,5 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react'
+import themes from './components/Themes';
+
 /*
 useEffect is a react hook that allows us to perfrom "side effects" at any stage of component's life cycle
 side effect: api call, adding en event listener, a function I want to run 
@@ -51,6 +53,10 @@ const data = [
 /* React will 'react' to whatever state is */
 
 
+// const changeTheme = () => {
+//   console.log('changing theme')
+// }
+ 
 function App() {
   /* put hook at top level of componenet (here) */
   // what do I want to keep track of?
@@ -93,14 +99,21 @@ function App() {
     handleFilter() 
   },[tasks, filterStatus])
 
+  // change theme with each click of a button
+  // const [newTheme, setNewTheme] = useState(themes)
+  // console.log(newTheme)
+  const newTheme = () => {
+    alert('theme changed!')
+  }
+
   return (
     <div className="App">
       <div className="container">
 
         <div className='header'>
-          <h1>What's up, Brionne!</h1>
+          <h1>What's up, <span style={{ color: '#66C7F4', fontStyle: 'italic', marginLeft: '50px'}} >Brionne!</span></h1>
           <h3>What's next?</h3>
-          <img src="./images/images/icon-sun.svg" alt="icon-sun"/>
+          <img onClick={newTheme} src="./images/images/icon-sun.svg" alt="icon-sun"/>
         </div>
         
         {/* it is possible to pass down functions so that other components can use them */}

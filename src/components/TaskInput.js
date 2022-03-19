@@ -27,7 +27,7 @@ export const TaskInput = ({tasks, setTasks}) => {
   
     const generateId = (array) => {
       const taskIDs = array.map((item) => item.id)
-      // console.log(taskIDs)
+      console.log(taskIDs)
       return Math.max(...taskIDs) + 1
     }
 
@@ -47,7 +47,7 @@ export const TaskInput = ({tasks, setTasks}) => {
 
     // setTasks([...tasks, newTask]) // setTasks() must be passed into this component from it's original component (App.js)
     setTasks([newTask,...tasks]) // creates a newTask at the beginning of the list
-    setInput('')
+    setInput('') // once enter is pressed after task is typed, input box will go blank 
   }
   // console.log(tasks)
 

@@ -42,7 +42,9 @@ export const Task = ({text, task, tasks, setTasks}) => {
   }
 
   const bookmarkTask = () => {
-    console.loog('urgent')
+    console.log('urgent')
+
+    alert('Task set as urgent!')
   }
 
   const deleteTask = () => {
