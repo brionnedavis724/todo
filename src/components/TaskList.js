@@ -3,7 +3,7 @@ import { Task } from './Task'
 import { FilterControl } from './FilterControl'
 
 /* child (TaskList) receives candy(props) ; this line of code shows TaskList ACCEPTING the props */
-export const TaskList = ({tasks, setTasks, filterStatus, setFilterStatus, filteredTasks}) => { // destructing props
+export const TaskList = ({tasks, setTasks, filterStatus, setFilterStatus, filteredTasks, editedTask, setEditedTask}) => { // destructing props
     // console.log(tasks)
 
     let [tally, setTally] = useState(0)
@@ -12,39 +12,40 @@ export const TaskList = ({tasks, setTasks, filterStatus, setFilterStatus, filter
         <div className='task-list-wrapper'>
 
             <div className='task-list'>
-            {/* map through an array of todos */}
-            {/* for every todo create a task component */}
-            {/* {tasks.map((item) => {
-                console.log(item)
-                return <Task />
-            })} */}
-            {filteredTasks.map((task) => {
-                // console.log(task)
-                // return <Task task = {task} />
-                // pass down info from the tasks object, destruct it. assign a new key w a new value in object
-               
-                return <Task
-                    text = {task.text}
-                    key = {task.id}
-                    status = {task.status}
-                    task = {task}
-                    tasks = {tasks}
-                    setTasks = {setTasks}
+                {/* map through an array of todos */}
+                {/* for every todo create a task component */}
+                {/* {tasks.map((item) => {
+                    console.log(item)
+                    return <Task />
+                })} */}
+                {filteredTasks.map((task) => {
+                    // console.log(task)
+                    // return <Task task = {task} />
+                    // pass down info from the tasks object, destruct it. assign a new key w a new value in object
+                    
+                    return <Task
+                        text = {task.text}
+                        key = {task.id}
+                        status = {task.status}
+                        task = {task}
+                        tasks = {tasks}
+                        setTasks = {setTasks}
                     />
-            })}
+                })}
                 {/* {console.log(tasks)} */}
             </div>
 
             <div className='task-items-info'>
+
                 <div className='items-left'>
                     {/* {console.log(tasks)} */}
                     
-                    {tasks.map((task) => {
+                    {tasks.map(() => {
                         tally+=1
-                        console.log('and another one')
                     })}
                     {/* 5 items left */}
                     {tally} items left
+                    {/* {console.log(tally)} */}
                 </div>
 
                 <FilterControl 

@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react'
-import themes from './components/Themes';
+// import themes from './components/Themes';
 
 /*
 useEffect is a react hook that allows us to perfrom "side effects" at any stage of component's life cycle
@@ -52,7 +52,6 @@ const data = [
 /* state is data we want to keep track of and change later on */
 /* React will 'react' to whatever state is */
 
-
 // const changeTheme = () => {
 //   console.log('changing theme')
 // }
@@ -88,6 +87,7 @@ function App() {
         /* if filter status is active, update tasks to be the filtered version */
 
       } else if (filterStatus === "completed") {
+          console.log('completed tasks')
           setFilteredTasks(tasks.filter((task) => task.status === true))
 
       } else {
@@ -103,7 +103,8 @@ function App() {
   // const [newTheme, setNewTheme] = useState(themes)
   // console.log(newTheme)
   const newTheme = () => {
-    alert('theme changed!')
+    console.log('theme changed!')
+    // setTheme("bg1")
   }
 
   return (
@@ -113,7 +114,7 @@ function App() {
         <div className='header'>
           <h1>What's up, <span style={{ color: '#66C7F4', fontStyle: 'italic' }} >Brionne!</span></h1>
           {/* <h3>What's next?</h3> */}
-          <img onClick={newTheme} src="./images/images/icon-sun.svg" alt="icon-sun"/>
+          <img onClick={newTheme} src="./images/images/icon-sun.svg" alt="icon-sun"/>       
         </div>
         
         {/* it is possible to pass down functions so that other components can use them */}
