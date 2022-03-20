@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Check from '../images/icon-check.svg' // access to image, reference it using the word "Check"
 
 /* pass down {text} prop that was created w TaskList map function*/

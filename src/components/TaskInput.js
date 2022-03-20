@@ -15,25 +15,25 @@ export const TaskInput = ({tasks, setTasks}) => {
   const [input, setInput] = useState("")
 
   const [editedTask, setEditedTask] = useState(input.text)
-  console.log(input)
+  // const string = editedTask.text === '' ? console.log('no string'): console.log('string') ;
 
     useEffect(() => {
-      // whenever a todo is updated,
-      // it is going to update the value of editedTodo to be todo.title
-      // editedTodo can only be updated using the setEditedTodos function
       setEditedTask(input.text)
-    }, []) // todo is an dependancy of this useEffect. whether useEffect runs depends on todo state
+    }, [input.text]) 
     
-    /*
-      if input is empty string do not add new task item/object 
-      
-      if (setInput === '') {
-        console.log('empty')
-      }
+   /*
+    if editedTask is an empty string, do not create a new task obj
     */
+    // if (editedTask === '') {
+    //   console.log('empty')
+    // } else {
+    //   console.log('not empty')
+    //   // setTasks([newTask,...tasks]) // creates a newTask at the beginning of the list
+    //   // create a new todo object
+    // }
 
   // handleChange is a function that runs ea time theres a change in input
-  const handleChange = (e) => { // (e) represents the event
+  const handleChange = (e) => { // (e) represents the event    
     // every time there's a change, grab what was typed
     // console.log(e.target.value) // within this event, grab the value of that input
     setInput(e.target.value) // update the state (setInput) with ea change
@@ -53,17 +53,13 @@ export const TaskInput = ({tasks, setTasks}) => {
       return Math.max(...taskIDs) + 1
     }
 
-    /*
-    if editedTask is an empty string, do not create a new task obj
-    */
-
-    // create a new todo object
     const newTask = {
       // id: 7,
       id: generateId(tasks),
       text: input,
       status: false
     }
+    console.log(newTask)
     // generateId(tasks)
 
     // add a new task to the list
@@ -76,17 +72,14 @@ export const TaskInput = ({tasks, setTasks}) => {
   }
   // console.log(tasks)
 
+  // const addTaskHandler = () => {
+  //   if (task)
+  // }
+
+
   return (
     // add tasks to input container
-    <div className='task-input'>
-      
-      {/*  
-      <div className='check'>
-        <div className='check-mark'>
-          // check mark image goes here
-        </div>
-      </div> 
-      */}
+    <div className='task-input'> 
 
       <div className='new-todo-input'>
         <form onSubmit={handleForm}> {/* when I press enter the handleForm function will run */}
@@ -94,6 +87,13 @@ export const TaskInput = ({tasks, setTasks}) => {
           <input onChange={(handleChange)} id="todo-input" type="text" placeholder="create a new todo..." />
         </form> {/*lets us submit info using onSubmit={}*/}
       </div>
+
+      <div className=''>
+        <div className='plus'>
+          {/* // check mark image goes here */}
+          <img className='icons' src='https://cdn-icons-png.flaticon.com/512/753/753317.png' alt='' />
+        </div>
+      </div> 
 
       {/* task list component */}
       {/* <div className="task-list"></div> */}
